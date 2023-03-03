@@ -84,19 +84,19 @@ body {
   width: 10px;
 }
 
-.showSideBar .bar1 {
+.showSideBar > .bar1 {
   transform: translate(0, 7px) rotate(-45deg);
 }
 
-.showSideBar .bar2 {
+.showSideBar > .bar2 {
   opacity: 0;
 }
 /* Rotate last bar */
-.showSideBar .bar3 {
+.showSideBar > .bar3 {
   transform: translate(0, -7px) rotate(45deg);
   width: 20px;
 }
-*/ #sidebarList ul {
+#sidebarList ul {
   padding: 30px 0 0 50px;
   margin: 0;
   display: flex;
@@ -219,6 +219,7 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--navColor);
+  padding-block-start: 2em;
 }
 
 #home h1 {
