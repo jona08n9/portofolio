@@ -10,10 +10,13 @@ function loadPage() {
 
 function addPageListeners() {
   window.addEventListener("resize", homeAnimation);
-  let links = document.querySelectorAll(".navLink");
-  links.forEach((link) => {
+  document.querySelectorAll(".navLink").forEach((link) => {
     link.addEventListener("click", closeMenu);
     console.log("Added LISTENERS to links. Kh Jonas");
+  });
+  document.querySelectorAll(".selection__li").forEach((about) => {
+    console.log("aboutChosen");
+    about.addEventListener("click", firstAboutChoose(about));
   });
   homeAnimation();
 }
@@ -26,12 +29,13 @@ function homeAnimation() {
     menuListenersMobile();
     menuClassesMobile();
     pageReziseEditsMobile();
-    aboutArrowChangeMobile();
+    aboutChangeMobile();
   } else {
     console.log("HomeAnimation: Window<500");
     menuListenersDesktop();
     menuClassesDesktop();
     pageReziseEditsDesktop();
+    aboutChangeDesktop();
   }
 }
 
@@ -61,20 +65,14 @@ function pageReziseEditsDesktop() {
   document.querySelector(".h1HomeBr").classList.add("hidden");
 }
 
-function aboutArrowChangeMobile() {
+function aboutChangeMobile() {
   document.querySelectorAll(".span-arrow").forEach((arrow) => {
-    arrow.innerHTML = `&#8595;`;
-  });
-  document.querySelectorAll(".span-br").forEach((br) => {
-    br.classList.remove("hidden");
+    arrow.classList.add("hidden");
   });
 }
-function aboutArrowChangeDesktop() {
+function aboutChangeDesktop() {
   document.querySelectorAll(".span-arrow").forEach((arrow) => {
-    arrow.innerHTML = `&#8594;`;
-  });
-  document.querySelectorAll(".span-br").forEach((br) => {
-    br.classList.add("hidden");
+    arrow.classList.remove("hidden");
   });
 }
 
@@ -129,4 +127,21 @@ function closeDesktopMenu() {
   document.querySelector("#sidebar").removeEventListener("mouseout", closeDesktopMenu);
   document.querySelector("#sidebar").classList.add("hideSideBar");
   document.querySelector("#sidebar").addEventListener("mouseover", openDesktopMenu);
+}
+
+function firstAboutChoose(e) {
+  document.querySelectorAll(".selection__li").forEach((about) => {
+    console.log(about.innerHTML);
+    about.removeEventListener("click", firstAboutChoose(about));
+  });
+  e.classList.add("about__chosen");
+  document.querySelectorAll(".selection__li").forEach((aboutP) => {
+    about.addEventListener("click", aboutChoose(aboutP));
+  });
+}
+
+function aboutChoose(e) {
+  let current = document.querySelector.classList.contains("about__chosen");
+  current.classList.remove("about__chosen");
+  e.classList.add("about__chosen");
 }

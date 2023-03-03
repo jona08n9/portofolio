@@ -12,10 +12,6 @@ body {
   padding: 0;
 }
 
-.hidden {
-  display: none;
-}
-
 ul,
 li,
 a {
@@ -384,7 +380,6 @@ a {
   display: grid;
   grid-template-areas: "header" "select" "text";
   max-width: 700px;
-  margin-top: -30px;
 }
 
 /* ABOUT IMG */
@@ -426,43 +421,60 @@ a {
   column-gap: 10px;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 #about__selection li:hover {
   cursor: pointer;
 }
 
-#about__selection li span {
+#about__selection li p {
   font-family: "Bebas Neue", cursive;
   font-size: 1.4em;
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 0.9em;
   text-align: center;
+  margin: 0 0 5px 0;
+  padding: 5px;
+  z-index: 1;
 }
 
-#about__selection li + span::before {
-  content: " ";
-  display: block;
+.about__span::before,
+.work__span::before,
+.funfacts__span::before {
+  content: "";
+  display: inline-block;
   position: absolute;
   inset: 0 0 0 0;
   z-index: -1;
   transition: transform 0.3s ease;
 }
+.about__span::before,
+.work__span::before,
+.funfacts__span::before {
+  background: hsl(200 100% 80%);
+}
 
-#about__selection li + span::before {
+.about__span::before,
+.work__span::before,
+.funfacts__span::before {
   transform: scaleX(0);
   transform-origin: bottom right;
 }
 
-#about__selection li + span:hover::before {
+li:hover .about__span::before,
+li:hover .work__span::before,
+li:hover .funfacts__span::before {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
 
-#about__selection li + span:before {
-  background: hsl(200 100% 80%);
+.about__chosen li p:first-child::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
+
 /* ABOUT TEXTS */
 .about__text {
   grid-area: text;
@@ -548,10 +560,16 @@ a {
   #about__selection li {
     width: 180px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
   }
-
-  #about__selection li span {
-    margin-bottom: 20px;
+  #about__selection li p {
+    padding: 5px 10px 5px 0;
+    margin-bottom: 0;
+    display: inline-block;
   }
+}
+
+.hidden {
+  display: none;
 }
