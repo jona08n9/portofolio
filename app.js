@@ -23,17 +23,53 @@ function addPageListeners() {
 function homeAnimation() {
   if (window.innerWidth < 500) {
     console.log("HomeAnimation: Window<500");
-    document.querySelector("#menuIcon").addEventListener("click", openMobileMenu);
-    document.querySelector("#sidebar").removeEventListener("mouseover", openDesktopMenu);
-    document.querySelector("#home").classList.add("mobile");
-    document.querySelector(".h1HomeBr").classList.remove("hidden");
+    menuListenersMobile();
+    menuClassesMobile();
+    pageReziseEditsMobile();
+    aboutArrowChangeMobile();
   } else {
     console.log("HomeAnimation: Window<500");
-    document.querySelector("#sidebar").addEventListener("mouseover", openDesktopMenu);
-    document.querySelector("#menuIcon").removeEventListener("click", openMobileMenu);
-    document.querySelector("#home").classList.remove("mobile");
-    document.querySelector(".h1HomeBr").classList.add("hidden");
+    menuListenersDesktop();
+    menuClassesDesktop();
+    pageReziseEditsDesktop();
   }
+}
+
+function menuListenersMobile() {
+  document.querySelector("#menuIcon").addEventListener("click", openMobileMenu);
+  document.querySelector("#sidebar").removeEventListener("mouseover", openDesktopMenu);
+}
+
+function menuListenersDesktop() {
+  document.querySelector("#sidebar").addEventListener("mouseover", openDesktopMenu);
+  document.querySelector("#menuIcon").removeEventListener("click", openMobileMenu);
+}
+
+function menuClassesMobile() {
+  document.querySelector("#home").classList.add("mobile");
+}
+
+function menuClassesDesktop() {
+  document.querySelector("#home").classList.remove("mobile");
+}
+
+function pageReziseEditsMobile() {
+  document.querySelector(".h1HomeBr").classList.remove("hidden");
+}
+
+function pageReziseEditsDesktop() {
+  document.querySelector(".h1HomeBr").classList.add("hidden");
+}
+
+function aboutArrowChangeMobile() {
+  document.querySelectorAll(".span-arrow").forEach((arrow) => {
+    arrow.innerHTML = `<br> &#8595;`;
+  });
+}
+function aboutArrowChangeDesktop() {
+  document.querySelectorAll(".span-arrow").forEach((arrow) => {
+    arrow.innerHTML = `&#8594;`;
+  });
 }
 
 function closeMenu() {
@@ -56,7 +92,7 @@ function closeMenu() {
   function waitForClose() {
     document.querySelector("#sidebar").removeEventListener("mouseover", waitForClose);
     console.log("TimeOutBruh");
-    setTimeout(homeAnimation, 1300);
+    setTimeout(homeAnimation, 1000);
   }
 }
 
