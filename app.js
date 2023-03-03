@@ -63,12 +63,18 @@ function pageReziseEditsDesktop() {
 
 function aboutArrowChangeMobile() {
   document.querySelectorAll(".span-arrow").forEach((arrow) => {
-    arrow.innerHTML = `<br> &#8595;`;
+    arrow.innerHTML = `&#8595;`;
+  });
+  document.querySelectorAll(".span-br").forEach((br) => {
+    br.classList.remove("hidden");
   });
 }
 function aboutArrowChangeDesktop() {
   document.querySelectorAll(".span-arrow").forEach((arrow) => {
     arrow.innerHTML = `&#8594;`;
+  });
+  document.querySelectorAll(".span-br").forEach((br) => {
+    br.classList.add("hidden");
   });
 }
 

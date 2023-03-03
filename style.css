@@ -377,7 +377,7 @@ a {
 
 /* * * ABOUT * * */
 #about {
-  background: hsl(200 100% 80%);
+  background: var(--fontColor);
 }
 
 #about .content__inner__section {
@@ -407,24 +407,25 @@ a {
 #about ul {
   padding: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: left;
-  row-gap: 15px;
+  flex-direction: row;
+  justify-content: center;
 }
 #about__selection .header {
   font-family: "Bebas Neue", cursive;
   font-size: 1.6em;
   font-weight: 400;
   letter-spacing: 1px;
-  text-align: left;
+  text-align: center;
   line-height: 0.9em;
   margin-bottom: 30px;
 }
 
 #about__selection li {
-  width: 180px;
+  width: 110px;
   display: flex;
-  justify-content: space-between;
+  column-gap: 10px;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #about__selection li:hover {
@@ -437,7 +438,30 @@ a {
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 0.9em;
-  margin-bottom: 20px;
+  text-align: center;
+}
+
+#about__selection li + span::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  inset: 0 0 0 0;
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+#about__selection li + span::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+#about__selection li + span:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+#about__selection li + span:before {
+  background: hsl(200 100% 80%);
 }
 /* ABOUT TEXTS */
 .about__text {
@@ -509,5 +533,25 @@ a {
   }
   .about__img {
     border-radius: 20px 0;
+  }
+
+  #about__selection .header {
+    text-align: left;
+  }
+
+  #about ul {
+    flex-direction: column;
+    justify-content: left;
+    row-gap: 15px;
+  }
+
+  #about__selection li {
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #about__selection li span {
+    margin-bottom: 20px;
   }
 }
