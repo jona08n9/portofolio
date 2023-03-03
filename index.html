@@ -4,35 +4,59 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend+Giga&family=Red+Hat+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <title>Portofolio</title>
   </head>
   <body>
-    <main class="content">
-      <div id="sidebar" class="hideSideBar">
-        <div id="menuIcon" class="hideSidebar">
+    <div id="sidebar" class="hideSideBar">
+      <div class="sidebarPage">
+        <div id="menuIcon" class="hideSideBar">
           <div class="bar1"></div>
           <div class="bar2"></div>
           <div class="bar3"></div>
         </div>
         <nav id="sidebarList">
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li>Menu</li>
+            <li class="homeNav"><a href="#home">Home</a></li>
+            <li class="aboutNav"><a href="#about">About</a></li>
+            <li class="projectNav"><a href="#projects">Projects</a></li>
+            <li class="contactNav"><a href="#contact">Contact</a></li>
           </ul>
         </nav>
+        <div class="some">
+          <h4>Follow me</h4>
+          <div class="icons">
+          <a href="" class="faceIcon"><img src="images/facebook_icon.svg" alt=""></a>
+          <a href="" class="instaIcon"><img src="images/instagram_icon.svg" alt=""></a>
+          <a href="" class="linkedIcon"><img src="images/linkedin_icon.svg" alt=""></a>
+          <a href="" class="gitIcon"><img src="images/gitbub_icon.svg" alt=""></a>
+          </div>
+        </div>
       </div>
-      <content class="inner__section">
-        <section id="home"></section>
-        <section id="about"></section>
-        <section id="projects"></section>
-        <section id="contact"></section>
-      </content>
+    </div>
+    <main class="content">
+        <section id="home">
+          <h1>Jonas E. <span class="h1HomeBr hidden"><br></span> Madvig</h1>
+            <p><span>FRONT END</span><span>GRAPHIC DESIGN</span><span>NOT A ROBOT</span></p>
+            <div class="welcome">
+              <h3>Welcome to my portofolio</h3>
+              <h3>Scroll to read more</h3>
+            </div>
+        </section>
+        <section id="about">
+          <h1>About</h1>
+        </section>
+        <section id="projects">
+          <h1>Projects</h1>
+        </section>
+        <section id="contact">
+          <h1>Contact</h1>
+        </section>
+      </div>
     </main>
     <script src="app.js"></script>
   </body>
