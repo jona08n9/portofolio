@@ -404,15 +404,16 @@ h6 {
 
 /* ABOUT SELECTORS */
 
-#about__selection {
-  padding-inline: 0;
+#about__selection,
+.about__text {
+  padding-inline: 30px 20px;
   margin-left: 0;
 }
 
-.about__text {
-  padding-inline: 0 20px;
-  margin-left: 0;
+#about__selection {
+  text-align: center;
 }
+
 .about__selection {
   grid-area: select;
 }
@@ -606,6 +607,11 @@ li:hover .funfacts__span::before {
   }
 
   /* ABOUT */
+
+  #about {
+    align-items: center;
+    padding-block-start: 0;
+  }
   #about .content__inner__section {
     display: grid;
     grid-template-areas: "header header header header header" "select text text text text";
@@ -623,6 +629,14 @@ li:hover .funfacts__span::before {
     flex-direction: column;
     justify-content: left;
     row-gap: 15px;
+  }
+
+  #about__selection {
+    padding-inline: 0;
+    text-align: left;
+  }
+  .about__text {
+    padding-inline: 0 20px;
   }
 
   #about__selection li {
