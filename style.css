@@ -489,12 +489,19 @@ li:hover .funfacts__span::before {
 /* ABOUT TEXTS */
 .about__text {
   grid-area: text;
+  max-height: 40vh;
+  overflow-y: scroll;
 }
 
 .about__text article {
   transform: scaleY(0);
   transition: transform 300ms ease;
   margin-block: 10px;
+  animation-name: closeAboutArticle;
+  animation-duration: 300ms;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
 }
 
 .borderBox {
@@ -513,10 +520,6 @@ li:hover .funfacts__span::before {
   animation-fill-mode: both;
 }
 
-.about__text article.close {
-  animation: closeAboutArticle 300ms ease 1 1;
-}
-
 @keyframes openAboutArticle {
   0% {
     transform: scaleY(0);
@@ -528,10 +531,10 @@ li:hover .funfacts__span::before {
 
 @keyframes closeAboutArticle {
   0% {
-    transform: scaleY(0);
+    transform: scaleY(1);
   }
   100% {
-    transform: scaleY(1);
+    transform: scaleY(0);
   }
 }
 
@@ -622,6 +625,10 @@ li:hover .funfacts__span::before {
     padding: 5px 10px 5px 0;
     margin-bottom: 0;
     display: inline-block;
+  }
+
+  .about__text {
+    max-height: 30vh;
   }
 
   .borderBox {

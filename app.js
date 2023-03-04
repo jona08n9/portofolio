@@ -2,6 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", loadPage);
 
+let aboutPrev = "";
+let aboutCurr = "";
+
 function loadPage() {
   addPageListeners();
 }
@@ -132,21 +135,82 @@ function closeDesktopMenu() {
 }
 
 function firstAboutChoose() {
+  aboutCurr = this.id;
+
   document.querySelectorAll(".selection__li").forEach((about) => {
     about.removeEventListener("click", firstAboutChoose);
     about.addEventListener("click", AboutChosen);
-    console.log("removedFirstChosen");
   });
+  console.log("removedFirstChosen");
+  console.log(`ID: ${this.id}`);
 
   this.classList.add("about__chosen");
+
+  if (this.id === "aboutMe") {
+    document.querySelector(".about__me__article").classList.remove("hidden");
+    document.querySelector(".about__me__article").classList.add("show");
+  } else if (this.id === "aboutWork") {
+    document.querySelector(".about__work__article").classList.remove("hidden");
+    document.querySelector(".about__work__article").classList.add("show");
+  } else {
+    document.querySelector(".about__fun__article").classList.remove("hidden");
+    document.querySelector(".about__fun__article").classList.add("show");
+  }
 }
 
 function AboutChosen() {
+  aboutPrev = aboutCurr;
+  aboutCurr = this.id;
+
   if (this.classList.contains("about__chosen")) {
     console.log("Same btn bro, try another");
   } else {
+    document.querySelectorAll(".selection__li").forEach((about) => {
+      about.removeEventListener("click", AboutChosen);
+    });
+
+    if (aboutPrev === "aboutMe") {
+      document.querySelector(".about__me__article").addEventListener("animationend", closeInfoBox);
+      document.querySelector(".about__me__article").classList.remove("show");
+    } else if (aboutPrev === "aboutWork") {
+      document.querySelector(".about__work__article").classList.remove("show");
+      document.querySelector(".about__work__article").addEventListener("animationend", closeInfoBox);
+    } else {
+      document.querySelector(".about__fun__article").classList.remove("show");
+      document.querySelector(".about__fun__article").addEventListener("animationend", closeInfoBox);
+    }
+
     document.querySelector(".about__chosen").classList.remove("about__chosen");
     this.classList.add("about__chosen");
+
     console.log("Changed .about__chosen. No sweat bro");
+  }
+}
+
+function closeInfoBox() {
+  console.log("HEY HEY HEY");
+
+  document.querySelectorAll(".selection__li").forEach((about) => {
+    about.addEventListener("click", AboutChosen);
+  });
+
+  if (aboutCurr === "aboutMe") {
+    console.log(`id: ${aboutCurr}`);
+    document.querySelector(".about__me__article").classList.remove("hidden");
+    document.querySelector(".about__work__article").classList.add("hidden");
+    document.querySelector(".about__fun__article").classList.add("hidden");
+    document.querySelector(".about__me__article").classList.add("show");
+  } else if (aboutCurr === "aboutWork") {
+    console.log(`id: ${aboutCurr}`);
+    document.querySelector(".about__work__article").classList.remove("hidden");
+    document.querySelector(".about__me__article").classList.add("hidden");
+    document.querySelector(".about__fun__article").classList.add("hidden");
+    document.querySelector(".about__work__article").classList.add("show");
+  } else {
+    console.log(`id: ${aboutCurr}`);
+    document.querySelector(".about__fun__article").classList.remove("hidden");
+    document.querySelector(".about__me__article").classList.add("hidden");
+    document.querySelector(".about__work__article").classList.add("hidden");
+    document.querySelector(".about__fun__article").classList.add("show");
   }
 }
