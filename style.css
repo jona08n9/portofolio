@@ -19,6 +19,17 @@ a {
   text-decoration: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 3px;
+  line-height: 0.9em;
+}
+
 /*** SIDEBAR ***/
 
 #sidebar {
@@ -495,7 +506,33 @@ li:hover .funfacts__span::before {
 }
 
 .about__text article.show {
-  transform: scaleY(1);
+  animation-name: openAboutArticle;
+  animation-duration: 300ms;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+.about__text article.close {
+  animation: closeAboutArticle 300ms ease 1 1;
+}
+
+@keyframes openAboutArticle {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes closeAboutArticle {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 #about p {
@@ -558,7 +595,7 @@ li:hover .funfacts__span::before {
   /* ABOUT */
   #about .content__inner__section {
     display: grid;
-    grid-template-areas: "header header header header header" "select select text text text";
+    grid-template-areas: "header header header header header" "select text text text text";
     margin-top: 0;
   }
   .about__img {
@@ -585,6 +622,10 @@ li:hover .funfacts__span::before {
     padding: 5px 10px 5px 0;
     margin-bottom: 0;
     display: inline-block;
+  }
+
+  .borderBox {
+    border-top: none;
   }
 }
 
