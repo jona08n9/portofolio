@@ -29,7 +29,7 @@ function addPageListeners() {
 // * * * * * FUNCTIONS
 
 function homeAnimation() {
-  if (window.innerWidth < 500) {
+  if (window.innerWidth <= 500) {
     console.log("HomeAnimation: Window<500");
     menuListenersMobile();
     menuClassesMobile();
@@ -82,7 +82,7 @@ function aboutChangeDesktop() {
 }
 
 function closeMenu() {
-  if (window.innerWidth < 500) {
+  if (window.innerWidth <= 500) {
     console.log("Window<500");
     document.querySelector("#menuIcon").removeEventListener("click", closeMobileMenu);
     document.querySelector("#menuIcon").classList.remove("showSideBar");
