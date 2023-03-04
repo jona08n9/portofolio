@@ -10,13 +10,15 @@ function loadPage() {
 
 function addPageListeners() {
   window.addEventListener("resize", homeAnimation);
+
   document.querySelectorAll(".navLink").forEach((link) => {
     link.addEventListener("click", closeMenu);
     console.log("Added LISTENERS to links. Kh Jonas");
   });
+
   document.querySelectorAll(".selection__li").forEach((about) => {
+    about.addEventListener("click", firstAboutChoose);
     console.log("aboutChosen");
-    about.addEventListener("click", firstAboutChoose(about));
   });
   homeAnimation();
 }
@@ -129,19 +131,28 @@ function closeDesktopMenu() {
   document.querySelector("#sidebar").addEventListener("mouseover", openDesktopMenu);
 }
 
-function firstAboutChoose(e) {
+function firstAboutChoose() {
   document.querySelectorAll(".selection__li").forEach((about) => {
-    console.log(about.innerHTML);
-    about.removeEventListener("click", firstAboutChoose(about));
+    about.removeEventListener("click", firstAboutChoose);
+    about.addEventListener("click", AboutChosen);
+    console.log("removedFirstChosen");
   });
-  e.classList.add("about__chosen");
-  document.querySelectorAll(".selection__li").forEach((aboutP) => {
-    about.addEventListener("click", aboutChoose(aboutP));
-  });
+
+  this.classList.add("about__chosen");
 }
 
-function aboutChoose(e) {
-  let current = document.querySelector.classList.contains("about__chosen");
-  current.classList.remove("about__chosen");
-  e.classList.add("about__chosen");
+function AboutChosen() {
+  if (this.classList.contains("about__chosen")) {
+    console.log("Same btn bro, try another");
+  } else {
+    document.querySelector(".about__chosen").classList.remove("about__chosen");
+    this.classList.add("about__chosen");
+    console.log("Changed .about__chosen. No sweat bro");
+  }
 }
+
+// function aboutChoose(e) {
+//   let current = document.querySelector.classList.contains("about__chosen");
+//   current.classList.remove("about__chosen");
+//   e.classList.add("about__chosen");
+// }
