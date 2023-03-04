@@ -470,7 +470,7 @@ li:hover .funfacts__span::before {
   transform-origin: bottom left;
 }
 
-.about__chosen li p:first-child::before {
+.about__chosen p:first-child::before {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
@@ -478,6 +478,24 @@ li:hover .funfacts__span::before {
 /* ABOUT TEXTS */
 .about__text {
   grid-area: text;
+}
+
+.about__text article {
+  transform: scaleY(0);
+  transition: transform 300ms ease;
+  margin-block: 10px;
+}
+
+.borderBox {
+  border-top: 1px solid var(--navColor);
+  height: 100%;
+  width: 80%;
+  background-color: transparent;
+  margin-inline: auto;
+}
+
+.about__text article.show {
+  transform: scaleY(1);
 }
 
 #about p {

@@ -18,7 +18,7 @@ function addPageListeners() {
 
   document.querySelectorAll(".selection__li").forEach((about) => {
     about.addEventListener("click", firstAboutChoose);
-    console.log("aboutChosen");
+    console.log("Hej mor Laila.");
   });
   homeAnimation();
 }
@@ -150,9 +150,3 @@ function AboutChosen() {
     console.log("Changed .about__chosen. No sweat bro");
   }
 }
-
-// function aboutChoose(e) {
-//   let current = document.querySelector.classList.contains("about__chosen");
-//   current.classList.remove("about__chosen");
-//   e.classList.add("about__chosen");
-// }
