@@ -385,6 +385,8 @@ h6 {
 /* * * ABOUT * * */
 #about {
   background: var(--fontColor);
+  align-items: flex-start;
+  padding-block-start: 100px;
 }
 
 #about .content__inner__section {
@@ -402,9 +404,14 @@ h6 {
 
 /* ABOUT SELECTORS */
 
-#about__selection,
+#about__selection {
+  padding-inline: 0;
+  margin-left: 0;
+}
+
 .about__text {
-  padding-inline: 30px 20px;
+  padding-inline: 0 20px;
+  margin-left: 0;
 }
 .about__selection {
   grid-area: select;
@@ -424,6 +431,7 @@ h6 {
   text-align: center;
   line-height: 0.9em;
   margin-bottom: 30px;
+  display: inline-block;
 }
 
 #about__selection li {
@@ -538,8 +546,10 @@ li:hover .funfacts__span::before {
   }
 }
 
-#about p {
+#about .about__text p {
   max-width: 60ch;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
 }
 
 /* * * PROJECTS * * */
