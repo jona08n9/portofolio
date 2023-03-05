@@ -87,26 +87,94 @@
               <h4>Current</h4>
               <p>Graphic Designer at <a href="https://www.vocast.com">VOCAST ApS</a>.</p>
               <h4>Previous</h4>
-              <p>Previous: Graphic Designer at <a href="https://www.vocast.com">VOCAST ApS</a>.</p>
-            </article>
-            <article>
-              <h2>Fun facts</h2>
-              <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-            </article> -->
+              <p>Previous: Graphic Designer at <a href="https://www.vocast.com">VOCAST ApS</a>.</p>-->
           </div>
 
           </div>
         </section>
         <section id="projects">
-          <h1>Projects</h1>
+          <div class="content__inner__section">
+            <h2>Projects</h2>
+            <p>Here you can see a few of my personal projects I've been working on.</p>
+            <div class="seperator"></div>
+            <div class="projects__container">
+              <artcle class="project__container project1">
+                <h3>Frank the Frankophile</h3>
+                <img src="images/ftf.gif">
+                <div class="project__text">
+                <h4>About the project</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, dignissimos ut. Pariatur velit molestiae expedita incidunt cumque accusantium omnis, ipsam at natus. Atque reprehenderit maiores rem quas vero sint quisquam.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, dignissimos ut. Pariatur velit molestiae expedita incidunt cumque accusantium omnis, ipsam at natus. Atque reprehenderit maiores rem quas vero sint quisquam.</p>
+                <h4><a href="#">See the project here</a></h4>
+                </div>
+              </artcle>
+              <artcle class="project__container project2">
+                <h3>Kleines</h3>
+                <img src="images/kleines.gif">
+                <div class="project__text">
+                <h4>About the project</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, dignissimos ut. Pariatur velit molestiae expedita incidunt cumque accusantium omnis, ipsam at natus. Atque reprehenderit maiores rem quas vero sint quisquam.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, dignissimos ut. Pariatur velit molestiae expedita incidunt cumque accusantium omnis, ipsam at natus. Atque reprehenderit maiores rem quas vero sint quisquam.</p>
+                <h4><a href="#">See the project here</a></h4>
+                </div>
+              </artcle>
+              <artcle class="project__container project3">
+                <h3>Hogwarts</h3>
+                <img src="images/isSnack.png">
+                <div class="project__text">
+                <h4>About the project</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, dignissimos ut. Pariatur velit molestiae expedita incidunt cumque accusantium omnis, ipsam at natus. Atque reprehenderit maiores rem quas vero sint quisquam.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, dignissimos ut. Pariatur velit molestiae expedita incidunt cumque accusantium omnis, ipsam at natus. Atque reprehenderit maiores rem quas vero sint quisquam.</p>
+                <h4><a href="#">See the project here</a></h4>
+                </div>
+              </artcle>
+              <div class="project__buttons">
+                <div class="arrow--left"><span>&#8592;</span> <span>Prev. project</span></div>
+                <div class="arrow--right"><span>Next project</span> <span>&#8594;</span></div>
+              </div>
+            </div>
+          </div>
         </section>
         <section id="contact">
-          <h1>Contact</h1>
+          <div class="content__inner__section">
+            <h2>Contact me</h2>
+            <h3>Want to contact me regarding colabs, work or something else? Use the form below 👇 </h3>
+            <form class="contact-form">
+              <div id="contactName"class="contact-form__container">
+                <label for="contactName">Your name</label>
+                <input name="contactName" type="text" placeholder="Full name" required>
+              </div>
+              <div id="contactEmail"class="contact-form__container">
+                <label for="contactEmail">Your email</label>
+                <input name="contactEmail" type="email" placeholder="your-mail@mail.com" required>
+              </div>
+              <div id="contactPhone"class="contact-form__container">
+                <label for="contactPhone">Your phone number (optional)</label>
+                <input name="contactPhone" type="tel" placeholder="+45 12 34 56 78">
+              </div>
+              <div id="contactSubject"class="contact-form__container">
+                <label for="contactSubject">Choose subject</label>
+                <select name="contactSubject" required>
+                  <option value="" disabled hidden>Subject</option>
+                  <option value="">Job position</option>
+                  <option value="">Work on website</option>
+                  <option value="">Want to collab</option>
+                  <option value="">Other</option>
+                </select>
+              </div>
+              <div id="contactText"class="contact-form__container">
+                <label for="contactInput">Your phone number (optional)</label>
+                <textarea name="contactInput" placeholder="Write your messagbe here." cols="30" rows="5" required></textarea>
+              </div>
+              <div class="contactSubmit">
+                <span id="formButton" type="submit" value="Send message">Send message</span>
+              </div>
+            </form>
+          </div>
         </section>
+        <footer>
+          <p>All rights reserved &#174; &#169; </p>
+        </footer>
       </div>
     </main>
     <script src="app.js"></script>

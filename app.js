@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", loadPage);
 
 let aboutPrev = "";
 let aboutCurr = "";
+let projectCurSlide = 0;
+const projectMaxSlides = document.querySelectorAll(".project__container").length - 1;
 
 function loadPage() {
   addPageListeners();
@@ -23,6 +25,14 @@ function addPageListeners() {
     about.addEventListener("click", firstAboutChoose);
     console.log("Hej mor Laila.");
   });
+
+  // loop through slides and set each slides translateX property to index * 100%
+  document.querySelectorAll(".project__container").forEach((slide, indx) => {
+    slide.style.transform = `translateX(${indx * 100}%)`;
+  });
+
+  document.querySelector(".arrow--right").addEventListener("click", changeNextProject);
+  document.querySelector(".arrow--left").addEventListener("click", changePrevProject);
   homeAnimation();
 }
 
@@ -213,4 +223,27 @@ function closeInfoBox() {
     document.querySelector(".about__work__article").classList.add("hidden");
     document.querySelector(".about__fun__article").classList.add("show");
   }
+}
+
+function changeNextProject() {
+  if (projectCurSlide === projectMaxSlides) {
+    projectCurSlide = 0;
+  } else {
+    projectCurSlide++;
+  }
+
+  document.querySelectorAll(".project__container").forEach((slide, index) => {
+    slide.style.transform = `translateX(${100 * (index - projectCurSlide)}%)`;
+  });
+}
+function changePrevProject() {
+  if (projectCurSlide === 0) {
+    projectCurSlide = projectMaxSlides;
+  } else {
+    projectCurSlide -= 1;
+  }
+
+  document.querySelectorAll(".project__container").forEach((slide, index) => {
+    slide.style.transform = `translateX(${100 * (index - projectCurSlide)}%)`;
+  });
 }
