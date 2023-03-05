@@ -680,6 +680,10 @@ li:hover .funfacts__span::before {
 
 /* * * CONTACT * * */
 
+#contact {
+  position: relative;
+}
+
 #contact .content__inner__section {
   max-width: 700px;
   padding-inline: 50px 20px;
@@ -759,6 +763,8 @@ li:hover .funfacts__span::before {
 
 /* FOOTER */
 footer {
+  position: absolute;
+  bottom: 0;
   width: 100vw;
   text-align: center;
 }
