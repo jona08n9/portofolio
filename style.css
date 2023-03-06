@@ -472,7 +472,8 @@ p {
 
 .about__span::before,
 .work__span::before,
-.funfacts__span::before {
+.funfacts__span::before,
+.about__text a::before {
   content: "";
   display: inline-block;
   position: absolute;
@@ -482,20 +483,23 @@ p {
 }
 .about__span::before,
 .work__span::before,
-.funfacts__span::before {
+.funfacts__span::before,
+.about__text a::before {
   background: hsl(200 100% 80%);
 }
 
 .about__span::before,
 .work__span::before,
-.funfacts__span::before {
+.funfacts__span::before,
+.about__text a::before {
   transform: scaleX(0);
   transform-origin: bottom right;
 }
 
 li:hover .about__span::before,
 li:hover .work__span::before,
-li:hover .funfacts__span::before {
+li:hover .funfacts__span::before,
+.about__text a:hover::before {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
@@ -557,6 +561,23 @@ li:hover .funfacts__span::before {
   }
 }
 
+.about__text a {
+  position: relative;
+}
+.about__text a {
+  z-index: 1;
+  color: var(--navColor);
+  padding-inline: 5px;
+  padding-block: 3px;
+  transition: -webkit-text-stroke 0.4s ease, text-decoration 0.4s ease;
+  text-decoration: underline 1px var(--navColor);
+  text-underline-offset: 3px;
+}
+
+.about__text a:hover {
+  -webkit-text-stroke: 1px var(--navColor);
+  text-decoration: none;
+}
 /* * * PROJECTS * * */
 #projects {
   align-items: flex-start;
@@ -604,8 +625,10 @@ li:hover .funfacts__span::before {
   width: 100%;
   aspect-ratio: 16 / 9;
   max-width: 700px;
+  height: 75%;
   position: absolute;
   transition: all 0.5s;
+  overflow-y: scroll;
 }
 
 .project__text {
